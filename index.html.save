@@ -1,0 +1,81 @@
+<!DOCTYtml lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #ffcccb;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d63384;
+        }
+        .hidden {
+            display: none;
+        }
+        .cute-button {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .cute-button:hover {
+            background: #ff69b4;
+        }
+        .image-container img {
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes floatingHearts {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-10vh); }
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: floatingHearts 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>You are cute...</h1>
+    <div class="image-container">
+        <img src="Snapchat-1924799218.jpg" alt="Cute Image">
+    </div>
+    <br>
+    <button class="cute-button" onclick="showMore()">But...</button>
+    <br><br>
+    <div id="together" class="hidden">
+        <h1>You look more cute when we are together ❤️</h1>
+        <div class="image-container">
+            <img src="0.jpg" alt="Together Image">
+        </div>
+    </div>
+
+    <script>
+        function showMore() {
+            document.getElementById("together").classList.remove("hidden");
+        }
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
